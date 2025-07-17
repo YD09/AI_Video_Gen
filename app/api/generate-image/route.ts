@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const client = new OpenAI({
-    baseURL: 'https://api.studio.nebius.com/v1/',
-    apiKey: process.env.NEBIUS_API_KEY,
-});
 export const dynamic = 'force-dynamic'; 
 export async function POST(request: NextRequest) {
+  const apiKey = process.env.NEBIUS_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: 'NEBIUS API key is not configured' },
+      { status: 500 }
+    );
+  }
+
+  const client = new OpenAI({
+    baseURL: 'https://api.studio.nebius.com/v1/',
+    apiKey: apiKey,
+  });
   try {
     const { prompt } = await request.json();
 
@@ -23,21 +31,29 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    const response = await client.images.generate({
-    "model": "black-forest-labs/flux-schnell",
-    "response_format": "b64_json",
-    "response_extension": "png",
-    "width": 1024,
-    "height": 1024,
-    "num_inference_steps": 4,
-    "negative_prompt": "",
-    "seed": -1,
-    "loras": null,
-    "prompt": prompt
+    const payload = {
+  model: "black-forest-labs/flux-schnell",
+  response_format: "b64_json",
+  response_extension: "png",
+  width: 1024,
+  height: 1024,
+  num_inference_steps: 4,
+  negative_prompt: "",
+  seed: -1,
+  loras: null,
+  prompt,
+} as any;
 
-    })
+const response = await client.images.generate(payload);
+
+
     console.log('Image generated:', response);
-
+    if (!response.data || !response.data[0]?.b64_json) {
+    return NextResponse.json(
+        { error: 'Image generation failed or response is invalid' },
+        { status: 500 }
+    );
+    }
     const base64Image = response.data[0].b64_json;
 
     if (!base64Image) {

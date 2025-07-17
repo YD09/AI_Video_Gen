@@ -6,4 +6,8 @@ const nextConfig = {
   images: { unoptimized: true },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  env: {
+    NEBIUS_API_KEY: process.env.NEBIUS_API_KEY,
+  },
+};

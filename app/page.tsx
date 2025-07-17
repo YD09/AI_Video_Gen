@@ -39,10 +39,10 @@ export default function Home() {
 
       setImageUrl(`data:image/png;base64,${data.imageUrl}`);
     } catch (err) {
-      setError(err.message || 'Failed to generate image');
-    } finally {
-      setLoading(false);
-    }
+  const errorMessage =
+    err instanceof Error ? err.message : 'Failed to generate image';
+  setError(errorMessage);
+  }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
