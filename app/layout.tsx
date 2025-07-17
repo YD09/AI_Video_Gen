@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AI Image Generator',
-  description: 'Generate stunning images from text descriptions using advanced AI technology',
+  title: 'DreamPixel ',
+  description: 'Turn dreams into digital art with AI',
 };
 
 export default function RootLayout({
