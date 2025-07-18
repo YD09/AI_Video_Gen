@@ -9,8 +9,11 @@ A modern, full-stack web application that allows users to generate high-quality 
 ## 📸 Preview
 
 <!-- Add screenshots or GIFs of your app -->
-![App UI](./assets/app-ui.png)
-![Generated Image Sample](./assets/sample-generation.gif)
+
+
+https://github.com/user-attachments/assets/f640419d-da2d-4dcd-90ff-55e18a92fb6e
+
+ple](./assets/sample-generation.gif)
 
 ---
 
@@ -31,9 +34,9 @@ A modern, full-stack web application that allows users to generate high-quality 
 | Layer        | Tools & Frameworks                       |
 |--------------|------------------------------------------|
 | Frontend     | React, Tailwind CSS, TypeScript          |
-| Backend      | Node.js, Express / FastAPI               |
+| Backend      | Node.js                                  |
 | AI Models    | black-forest-labs/flux-schnell           |
-| Deployment   | Docker, Vercel, or Render                |
+| Deployment   | Docker                                   |
 
 ---
 
