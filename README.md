@@ -1,23 +1,22 @@
-# 🖼️ AI Text-to-Image Generator
+#  AI Text-to-Image Generator
 
 A modern, full-stack web application that allows users to generate high-quality images using text prompts via advanced AI models like **OpenAI's DALL·E**, **Stability AI**, or **local inference APIs**.
 
-> **Status:** MVP Completed ✅ | Enhancements in Progress
+> **Status:** MVP Completed  | Enhancements in Progress
 
 ---
 
-## 📸 Preview
+##  Preview
 
 <!-- Add screenshots or GIFs of your app -->
 
 
 https://github.com/user-attachments/assets/f640419d-da2d-4dcd-90ff-55e18a92fb6e
 
-ple](./assets/sample-generation.gif)
 
 ---
 
-## 💡 Features
+##  Features
 
 -  Text prompt input with real-time validation
 -  AI-powered image generation from natural language
